@@ -1,0 +1,29 @@
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+
+@Entity()
+export class Course {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
+  @Column({ type: 'varchar' })
+  name: string;
+
+  @Column({ type: 'enum', enum: ['Programming', 'SMM', 'Design'] })
+  category: string;
+
+  @Column({name: 'teacher_id'})
+  teacher_id: string;
+
+//   @ManyToOne(() => Teacher, teacher => teacher.courses)
+//   @JoinColumn({name: 'teacher_id'})
+//   teacher: Teacher
+
+  @CreateDateColumn()
+  start_time: Date;
+
+  @DeleteDateColumn()
+  end_time: Date;
+
+  @Column({ type: 'boolean', default: true })
+  is_active: boolean;
+}
