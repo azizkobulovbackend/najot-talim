@@ -12,9 +12,9 @@ export class CourseService {
     private readonly CourseRepository: Repository<Course>,
   ) {}
 
-  createCourse(createCourseDto: CreateCourseDto): Promise<Course> {
-    let { name, category, teacherId } = createCourseDto;
-    let newCourse = { name, category, teacher_id: teacherId };
+  async createCourse(createCourseDto: CreateCourseDto): Promise<Course> {
+    let { name, category, teacher_id } = createCourseDto;
+    let newCourse = await  this.CourseRepository.create(createCourseDto)
     return this.CourseRepository.save(newCourse);
   }
 
