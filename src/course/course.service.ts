@@ -13,7 +13,11 @@ export class CourseService {
   ) {}
 
   async createCourse(createCourseDto: CreateCourseDto): Promise<Course> {
-    let newCourse = await this.CourseRepository.create(createCourseDto)
+    const teacher = await this.CourseRepository.findOneBy({
+      id: createCourseDto.teacherId,
+    });
+    let newCourse = await this.CourseRepository.create(createCourseDto);
+    
     return this.CourseRepository.save(newCourse);
   }
 
@@ -39,6 +43,6 @@ export class CourseService {
   }
 
   remove(id: any) {
-    return this.CourseRepository.delete(id)
+    return this.CourseRepository.delete(id);
   }
 }
