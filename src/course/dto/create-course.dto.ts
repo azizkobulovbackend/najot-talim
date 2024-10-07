@@ -15,6 +15,6 @@ export class CreateCourseDto {
     category: CourseCategory
 
     @IsNotEmpty()
-    teacherId: string;
+    teacher_id: string;
     
 }
