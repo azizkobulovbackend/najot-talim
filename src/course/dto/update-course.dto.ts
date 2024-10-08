@@ -8,13 +8,12 @@ enum CourseCategory {
 }
 
 export class UpdateCourseDto extends PartialType(CreateCourseDto) {
-    @IsNotEmpty()
     @IsString()
     name: string
 
-    @IsNotEmpty()
+    @IsString()
     category: CourseCategory
 
-    @IsNotEmpty()
-    teacherId: string;
+    @IsString()
+    teacher_id: string;
 }
