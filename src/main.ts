@@ -1,7 +1,7 @@
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import * as express from 'express'
+import * as express from 'express';
 import { join } from 'path';
 
 async function bootstrap() {
@@ -11,7 +11,10 @@ async function bootstrap() {
       whitelist: true,
     }),
   );
-  app.use('/teacher/uploads', express.static(join(process.cwd(), '/src/teacher/uploads')))
+  app.use(
+    '/teacher/uploads',
+    express.static(join(process.cwd(), '/src/teacher/uploads')),
+  );
   await app.listen(3000);
 }
 bootstrap();

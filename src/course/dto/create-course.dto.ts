@@ -1,20 +1,19 @@
-import {  IsNotEmpty, IsString } from "class-validator";
+import { IsNotEmpty, IsString } from 'class-validator';
 
 enum CourseCategory {
-    Programming = "Programming",
-    SMM = "SMM",
-    Design = "Design"
+  Programming = 'Programming',
+  SMM = 'SMM',
+  Design = 'Design',
 }
 
 export class CreateCourseDto {
-    @IsNotEmpty()
-    @IsString()
-    name: string
+  @IsNotEmpty()
+  @IsString()
+  name: string;
 
-    @IsNotEmpty()
-    category: CourseCategory
+  @IsNotEmpty()
+  category: CourseCategory;
 
-    @IsNotEmpty()
-    teacher_id: string;
-    
+  @IsNotEmpty()
+  teacher_id: string;
 }

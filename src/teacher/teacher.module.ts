@@ -5,11 +5,11 @@ import { Teacher } from './entities/teacher.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MulterModule } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
-import {extname, join } from 'path';
+import { extname, join } from 'path';
 import { existsSync, mkdirSync } from 'fs';
 
 const uploadDir = join(process.cwd(), 'src/teacher/uploads');
-if(!existsSync(uploadDir)) {
+if (!existsSync(uploadDir)) {
   mkdirSync(uploadDir);
 }
 

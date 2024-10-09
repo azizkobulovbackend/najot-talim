@@ -1,7 +1,14 @@
-
-
 import { Course } from 'src/course/entities/course.entity';
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  DeleteDateColumn,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity()
 export class Teacher {
@@ -14,16 +21,16 @@ export class Teacher {
   @Column({ type: 'enum', enum: ['odd', 'even'] })
   days: string;
 
-  @Column({type: 'enum', enum: ['Teacher', 'Assistant']})
+  @Column({ type: 'enum', enum: ['Teacher', 'Assistant'] })
   role: string;
 
-  @OneToMany(() => Course, course => course.teacher)
+  @OneToMany(() => Course, (course) => course.teacher)
   courses: Course[];
 
   @CreateDateColumn()
   start_time: Date;
 
-  @Column({type: 'varchar'})
+  @Column({ type: 'varchar' })
   photo: string;
 
   @DeleteDateColumn()
