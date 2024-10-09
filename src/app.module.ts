@@ -10,6 +10,8 @@ import { GroupModule } from './group/group.module';
 import { AdminModule } from './admin/admin.module';
 import { User } from './user/entities/user.entity';
 import { UserModule } from './user/user.module';
+import { Group } from './group/entities/group.entity';
+import { Admin } from 'typeorm';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -18,7 +20,7 @@ import { UserModule } from './user/user.module';
     port: 5432,
     password: 'aziz1501',
     username: 'postgres',
-    entities: [Course, Teacher, User],
+    entities: [Course, Teacher, User, Group, Admin],
     database: 'najot',
     synchronize: true,
     logging: true,
