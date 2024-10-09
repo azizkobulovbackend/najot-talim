@@ -20,7 +20,7 @@ export class UpdateTeacherDto extends PartialType(CreateTeacherDto) {
   days: Days;
 
   @IsEnum(Role)
-  role: Role;
+  role: Role;   
 
   photo: any;
 }

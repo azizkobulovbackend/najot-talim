@@ -8,25 +8,24 @@ import { Teacher } from './teacher/entities/teacher.entity';
 import { TeacherModule } from './teacher/teacher.module';
 import { GroupModule } from './group/group.module';
 import { AdminModule } from './admin/admin.module';
+import { User } from './user/entities/user.entity';
+import { UserModule } from './user/user.module';
 
 @Module({
-  imports: [
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      password: 'avaz1514',
-      username: 'postgres',
-      entities: [Course, Teacher],
-      database: 'najot',
-      synchronize: true,
-      logging: true,
-    }),
-    CourseModule,
-    TeacherModule,
-    GroupModule,
-    AdminModule,
-  ],
+  imports: [TypeOrmModule.forRoot({
+    type: 'postgres',
+    host: 'localhost',
+    port: 5432,
+    password: 'aziz1501',
+    username: 'postgres',
+    entities: [Course, Teacher, User],
+    database: 'najot',
+    synchronize: true,
+    logging: true,
+  }),
+  CourseModule,
+  TeacherModule,
+  UserModule],
   controllers: [AppController],
   providers: [AppService],
 })
