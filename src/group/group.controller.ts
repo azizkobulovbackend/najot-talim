@@ -17,7 +17,7 @@ export class GroupController {
 
   @Post()
   create(@Body() createGroupDto: CreateGroupDto) {
-    return this.groupService.create(createGroupDto);
+    return this.groupService.createGroup(createGroupDto);
   }
 
   @Get()
@@ -27,7 +27,7 @@ export class GroupController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.groupService.findOne(+id);
+    return this.groupService.findOne(id);
   }
 
   @Patch(':id')
@@ -37,6 +37,6 @@ export class GroupController {
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.groupService.remove(+id);
+    return this.groupService.remove(id);
   }
 }
