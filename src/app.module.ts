@@ -12,6 +12,14 @@ import { User } from './user/entities/user.entity';
 import { UserModule } from './user/user.module';
 import { Group } from './group/entities/group.entity';
 import { Admin } from 'typeorm';
+import { PaymentModule } from './payment/payment.module';
+import { UserCourseModule } from './user_course/user_course.module';
+import { ExamModule } from './exam/exam.module';
+import { LessonModule } from './lesson/lesson.module';
+import { HomeworkModule } from './homework/homework.module';
+import { CheckExamModule } from './check-exam/check-exam.module';
+import { CheckHomeworkModule } from './check-homework/check-homework.module';
+import { AttendanceModule } from './attendance/attendance.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -29,7 +37,15 @@ import { Admin } from 'typeorm';
   GroupModule,
   CourseModule,
   TeacherModule,
-  UserModule],
+  UserModule,
+  PaymentModule,
+  UserCourseModule,
+  ExamModule,
+  LessonModule,
+  HomeworkModule,
+  CheckExamModule,
+  CheckHomeworkModule,
+  AttendanceModule],
   controllers: [AppController],
   providers: [AppService],
 })
