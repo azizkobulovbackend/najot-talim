@@ -25,6 +25,8 @@ import { Admin } from 'typeorm';
     synchronize: true,
     logging: true,
   }),
+  AdminModule,
+  GroupModule,
   CourseModule,
   TeacherModule,
   UserModule],
