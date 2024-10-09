@@ -6,6 +6,8 @@ import { CourseModule } from './course/course.module';
 import { Course } from './course/entities/course.entity';
 import { Teacher } from './teacher/entities/teacher.entity';
 import { TeacherModule } from './teacher/teacher.module';
+import { GroupModule } from './group/group.module';
+import { AdminModule } from './admin/admin.module';
 import { User } from './user/entities/user.entity';
 import { UserModule } from './user/user.module';
 

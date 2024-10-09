@@ -23,7 +23,7 @@ export class TeacherController {
   @UseInterceptors(FileInterceptor('file'))
   create(
     @Body() createTeacherDto: CreateTeacherDto,
-    @UploadedFile() file: Express.Multer.File
+    @UploadedFile() file: Express.Multer.File,
   ) {
     console.log(file);
     console.log(createTeacherDto);

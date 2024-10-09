@@ -1,5 +1,13 @@
 import { Teacher } from 'src/teacher/entities/teacher.entity';
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  DeleteDateColumn,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity()
 export class Course {
@@ -12,11 +20,11 @@ export class Course {
   @Column({ type: 'enum', enum: ['Programming', 'SMM', 'Design'] })
   category: string;
 
-  @Column({name: 'teacher_id'})
+  @Column({ name: 'teacher_id' })
   teacher_id: string;
 
-  @ManyToOne(() => Teacher, teacher => teacher.courses)
-  teacher: Teacher
+  @ManyToOne(() => Teacher, (teacher) => teacher.courses)
+  teacher: Teacher;
 
   @CreateDateColumn()
   start_time: Date;
