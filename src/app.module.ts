@@ -7,6 +7,7 @@ import { Course } from './course/entities/course.entity';
 import { Teacher } from './teacher/entities/teacher.entity';
 import { TeacherModule } from './teacher/teacher.module';
 import { GroupModule } from './group/group.module';
+import { AdminModule } from './admin/admin.module';
 
 @Module({
   imports: [
@@ -14,7 +15,7 @@ import { GroupModule } from './group/group.module';
       type: 'postgres',
       host: 'localhost',
       port: 5432,
-      password: 'aziz1501',
+      password: 'avaz1514',
       username: 'postgres',
       entities: [Course, Teacher],
       database: 'najot',
@@ -24,6 +25,7 @@ import { GroupModule } from './group/group.module';
     CourseModule,
     TeacherModule,
     GroupModule,
+    AdminModule,
   ],
   controllers: [AppController],
   providers: [AppService],
