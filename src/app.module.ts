@@ -46,6 +46,7 @@ import { AttendanceModule } from './attendance/attendance.module';
   CheckExamModule,
   CheckHomeworkModule,
   AttendanceModule],
+  
   controllers: [AppController],
   providers: [AppService],
 })
