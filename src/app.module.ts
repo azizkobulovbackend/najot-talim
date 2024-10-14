@@ -20,33 +20,44 @@ import { HomeworkModule } from './homework/homework.module';
 import { CheckExamModule } from './check-exam/check-exam.module';
 import { CheckHomeworkModule } from './check-homework/check-homework.module';
 import { AttendanceModule } from './attendance/attendance.module';
+import { JwtModule } from '@nestjs/jwt';
+import { Auth } from './auth/entities/auth.entity';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
-  imports: [TypeOrmModule.forRoot({
-    type: 'postgres',
-    host: 'localhost',
-    port: 5432,
-    password: 'aziz1501',
-    username: 'postgres',
-    entities: [Course, Teacher, User, Group, Admin],
-    database: 'najot',
-    synchronize: true,
-    logging: true,
-  }),
-  AdminModule,
-  GroupModule,
-  CourseModule,
-  TeacherModule,
-  UserModule,
-  PaymentModule,
-  UserCourseModule,
-  ExamModule,
-  LessonModule,
-  HomeworkModule,
-  CheckExamModule,
-  CheckHomeworkModule,
-  AttendanceModule],
-  
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: 'localhost',
+      port: 5432,
+      password: 'aziz1501',
+      username: 'postgres',
+      entities: [Course, Teacher, User, Group, Admin, Auth],
+      database: 'najot',
+      synchronize: true,
+      logging: true,
+    }),
+    JwtModule.register({
+      global: true,
+      secret: 'Very Secret',
+      signOptions: { expiresIn: '1h' },
+    }),
+    AdminModule,
+    GroupModule,
+    CourseModule,
+    TeacherModule,
+    UserModule,
+    PaymentModule,
+    UserCourseModule,
+    ExamModule,
+    LessonModule,
+    HomeworkModule,
+    CheckExamModule,
+    CheckHomeworkModule,
+    AttendanceModule,
+    AuthModule,
+  ],
+
   controllers: [AppController],
   providers: [AppService],
 })

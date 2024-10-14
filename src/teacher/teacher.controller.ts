@@ -25,8 +25,6 @@ export class TeacherController {
     @Body() createTeacherDto: CreateTeacherDto,
     @UploadedFile() file: Express.Multer.File,
   ) {
-    console.log(file);
-    console.log(createTeacherDto);
 
     return this.teacherService.create(createTeacherDto, file);
   }

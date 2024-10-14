@@ -3,6 +3,10 @@ import { IsNotEmpty, IsString, IsEnum, IsArray } from 'class-validator';
 export class CreateUserDto {
   @IsNotEmpty()
   @IsString()
+  fullname: string;
+
+  @IsNotEmpty()
+  @IsString()
   login: string;
 
   @IsNotEmpty()

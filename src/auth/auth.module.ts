@@ -1,21 +1,22 @@
 import { Module } from '@nestjs/common';
-import { TeacherService } from './teacher.service';
-import { TeacherController } from './teacher.controller';
-import { Teacher } from './entities/teacher.entity';
+import { AuthService } from './auth.service';
+import { AuthController } from './auth.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { User } from 'src/user/entities/user.entity';
+import { UserModule } from 'src/user/user.module';
 import { MulterModule } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
-import { extname, join } from 'path';
 import { existsSync, mkdirSync } from 'fs';
+import { extname, join } from 'path';
 
-const uploadDir = join(process.cwd(), 'src/teacher/uploads');
+const uploadDir = join(process.cwd(), 'src/user/uploads');
 if (!existsSync(uploadDir)) {
   mkdirSync(uploadDir);
 }
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Teacher]),
+    TypeOrmModule.forFeature([User]),
     MulterModule.register({
       storage: diskStorage({
         destination: (req, file, cb) => {
@@ -36,7 +37,7 @@ if (!existsSync(uploadDir)) {
       },
     }),
   ],
-  controllers: [TeacherController],
-  providers: [TeacherService],
+  controllers: [AuthController],
+  providers: [AuthService],
 })
-export class TeacherModule {}
+export class AuthModule {}

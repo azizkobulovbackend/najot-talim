@@ -12,35 +12,35 @@ export class GroupService {
     private readonly GroupRepository: Repository<Group>
   ) {}
 
-  async createGroup(createGroupDto: CreateGroupDto): Promise<Group> {
-    let newGroup = await this.GroupRepository.create(createGroupDto)
-    return this.GroupRepository.save(newGroup)
-  }
+  // async createGroup(createGroupDto: CreateGroupDto): Promise<Group> {
+  //   let newGroup = await this.GroupRepository.create(createGroupDto)
+  //   return this.GroupRepository.save(newGroup)
+  // }
 
   findAll(): Promise<Group[]> {
     return this.GroupRepository.find();
   }
 
-  async findOne(id: any): Promise<Group|any> {
-    let findGroup = await this.GroupRepository.findOneBy({ id })
+  // async findOne(id: any): Promise<Group|any> {
+  //   let findGroup = await this.GroupRepository.findOneBy({ id })
   
-    if (!findGroup)
-    return new HttpException('Group not found', HttpStatus.NOT_FOUND)
-    return findGroup;
-  }
+  //   if (!findGroup)
+  //   return new HttpException('Group not found', HttpStatus.NOT_FOUND)
+  //   return findGroup;
+  // }
 
 
-  async update(id: any, updateGroupDto: UpdateGroupDto): Promise<any> {
-    let findGroup = await this.GroupRepository.findOneBy({ id });
-    if(!findGroup)
-    return new HttpException('Group not found', HttpStatus.NOT_FOUND)
-    return this.GroupRepository.update({ id }, { ...updateGroupDto })
-  }
+  // async update(id: any, updateGroupDto: UpdateGroupDto): Promise<any> {
+  //   let findGroup = await this.GroupRepository.findOneBy({ id });
+  //   if(!findGroup)
+  //   return new HttpException('Group not found', HttpStatus.NOT_FOUND)
+  //   return this.GroupRepository.update({ id }, { ...updateGroupDto })
+  // }
 
-  async remove(id: any) {
-    let findGroup = await this.GroupRepository.findOneBy({ id });
-    if(!findGroup)
-    return new HttpException('Group not found', HttpStatus.NOT_FOUND)
-    return this.GroupRepository.delete( id )
-  }
+  // async remove(id: any) {
+  //   let findGroup = await this.GroupRepository.findOneBy({ id });
+  //   if(!findGroup)
+  //   return new HttpException('Group not found', HttpStatus.NOT_FOUND)
+  //   return this.GroupRepository.delete( id )
+  // }
 }
