@@ -11,7 +11,7 @@ import { AdminModule } from './admin/admin.module';
 import { User } from './user/entities/user.entity';
 import { UserModule } from './user/user.module';
 import { Group } from './group/entities/group.entity';
-import { Admin } from 'typeorm';
+import { Admin } from './admin/entities/admin.entity';
 import { PaymentModule } from './payment/payment.module';
 import { UserCourseModule } from './user_course/user_course.module';
 import { ExamModule } from './exam/exam.module';

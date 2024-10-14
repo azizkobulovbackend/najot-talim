@@ -14,6 +14,7 @@ import {
 import { FileInterceptor } from '@nestjs/platform-express';
 import { Express } from 'express';
 import { Request } from 'express';
+import { AdminGuard } from '../admin/admin.guard';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
 import { CreateAuthDto } from './dto/create-auth.dto';
@@ -26,11 +27,12 @@ export class AuthController {
 
   @Post('register')
   @UseInterceptors(FileInterceptor('file'))
+
+  @UseGuards(AdminGuard)
   create(
     @Body() createAuthDto: CreateAuthDto,
     @UploadedFile() file: Express.Multer.File,
   ) {
-    console.log(file);
     
     return this.authService.create(createAuthDto, file);
   }
