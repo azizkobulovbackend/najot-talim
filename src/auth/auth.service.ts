@@ -37,7 +37,7 @@ export class AuthService {
       sex,
     });
     await this.userRepository.save(newUser);
-    let payload = { id: newUser.id, email: newUser.login };
+    let payload = { id: newUser.id, login: newUser.login, isAdmin: newUser.is_admin };
     let token = await this.jwtService.sign(payload);
     let data = { newUser, token };
     return data;
@@ -49,7 +49,7 @@ export class AuthService {
     if (!user) throw new UnauthorizedException();
     let verify = await compare(password, user.password);
     if (!verify) throw new UnauthorizedException();
-    let payload = { id: user.id, login: user.login };
+    let payload = { id: user.id, login: user.login, isAdmin: user.is_admin };
     let token = await this.jwtService.sign(payload);
     let data = { user, token };
     return data;
