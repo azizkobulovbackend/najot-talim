@@ -19,17 +19,17 @@ export class TeacherService {
       name,
       days,
       role,
-      photo: url,
+      photo: url, 
     });
     await this.TeacherRepository.save(newTeacher);
   }
 
   findAll() {
-    return this.TeacherRepository.find();
+    return this.TeacherRepository.find({relations: {courses: true}});
   }
 
   async findOne(id: any) {
-    let findTeacher = await this.TeacherRepository.findOneBy({ id });
+    let findTeacher = await this.TeacherRepository.findOne({where: {id}, select: {courses: {name: true} }});
 
     if (!findTeacher)
       return new HttpException('Teacher not found', HttpStatus.NOT_FOUND);

@@ -15,28 +15,28 @@ import { UpdateGroupDto } from './dto/update-group.dto';
 export class GroupController {
   constructor(private readonly groupService: GroupService) {}
 
-  @Post()
-  create(@Body() createGroupDto: CreateGroupDto) {
-    return this.groupService.createGroup(createGroupDto);
-  }
+  // @Post()
+  // create(@Body() createGroupDto: CreateGroupDto) {
+  //   return this.groupService.createGroup(createGroupDto);
+  // }
 
-  @Get()
-  findAll() {
-    return this.groupService.findAll();
-  }
+  // @Get()
+  // findAll() {
+  //   return this.groupService.findAll();
+  // }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.groupService.findOne(id);
-  }
+  // @Get(':id')
+  // findOne(@Param('id') id: string) {
+  //   return this.groupService.findOne(id);
+  // }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateGroupDto: UpdateGroupDto) {
-    return this.groupService.update(+id, updateGroupDto);
-  }
+  // @Patch(':id')
+  // update(@Param('id') id: string, @Body() updateGroupDto: UpdateGroupDto) {
+  //   return this.groupService.update(+id, updateGroupDto);
+  // }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.groupService.remove(id);
-  }
+  // @Delete(':id')
+  // remove(@Param('id') id: string) {
+  //   return this.groupService.remove(id);
+  // }
 }

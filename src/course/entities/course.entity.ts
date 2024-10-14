@@ -20,9 +20,6 @@ export class Course {
   @Column({ type: 'enum', enum: ['Programming', 'SMM', 'Design'] })
   category: string;
 
-  @Column({ name: 'teacher_id' })
-  teacher_id: string;
-
   @ManyToOne(() => Teacher, (teacher) => teacher.courses)
   teacher: Teacher;
 

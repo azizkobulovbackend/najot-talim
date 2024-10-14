@@ -15,6 +15,10 @@ async function bootstrap() {
     '/teacher/uploads',
     express.static(join(process.cwd(), '/src/teacher/uploads')),
   );
+  app.use(
+    '/user/uploads',
+    express.static(join(process.cwd(), '/src/user/uploads')),
+  );
   await app.listen(3000);
 }
 bootstrap();

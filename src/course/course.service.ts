@@ -35,12 +35,12 @@ export class CourseService {
     });
     if (!findTeacher)
       return new HttpException('Teacher not found', HttpStatus.NOT_FOUND);
-    const newCourse = await this.CourseRepository.create(createCourseDto);
+    const newCourse = await this.CourseRepository.create({name, category, teacher: findTeacher});
     return this.CourseRepository.save(newCourse);
   }
 
   async findAll(): Promise<Course[]> {
-    let courses = await this.CourseRepository.find();
+    let courses = await this.CourseRepository.find({relations: {teacher: true}});
     let cached = await this.client.get('courses');
     if (cached) {
       return JSON.parse(cached);

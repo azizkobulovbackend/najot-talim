@@ -1,3 +1,4 @@
+import { Group } from 'src/group/entities/group.entity';
 import {
   Column,
   CreateDateColumn,
@@ -14,26 +15,24 @@ export class User {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
+  @Column({type: 'varchar'})
+  fullname: string;
+
   @Column({ type: 'varchar', unique: true })
   login: string;
 
   @Column({ type: 'varchar' })
   password: string;
 
-  @Column({ type: 'varchar' })
+  @Column({ type: 'varchar', unique: true })
   phone: string;
 
   @Column({ type: 'varchar' })
   photo: string;
 
-  @Column({ name: 'group_id' })
-  group_id: string;
+  @ManyToOne(() => Group, (group) => group.users)
+  group: Group;
 
-  //   @ManyToOne(() => Group, group => group.users)
-  //   group: Group
-
-  @Column({ name: 'birth_date' })
-  birth_date: Date;
 
   @Column({ type: 'enum', enum: ['male', 'female', 'other'] })
   sex: string;
@@ -44,10 +43,10 @@ export class User {
   @Column({ type: 'boolean', default: false })
   is_admin: boolean;
 
-  @Column({ name: 'xp' })
+  @Column({ name: 'xp', default: 0 })
   xp: number;
 
-  @Column({ name: 'silver' })
+  @Column({ name: 'silver', default: 0 })
   silver: number;
 
   @CreateDateColumn()
